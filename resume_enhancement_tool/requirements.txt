@@ -1,0 +1,23 @@
+# Document Handling Libraries
+PyMuPDF
+python-docx
+requests
+
+# Machine Learning Libraries
+tensorflow
+transformers
+tf-keras
+
+# Database and Data Handling
+sqlalchemy
+numpy
+pandas
+
+# Environment Variables Handling
+python-dotenv
+
+# Gradio for Web Interface
+gradio
+
+# Hugging Face Hub
+huggingface-hub
