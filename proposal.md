@@ -51,7 +51,7 @@ ResumeEnhancer aims to develop an AI-powered system that analyzes job market tre
 ## Data, Tools, Techniques, and Challenges
 
 ### Dataset Description
-- Scraped job postings from SimplyHired (target: 10,000+ job listings).
+- Scraped job postings from SimplyHired (target: 1,000+ job listings).
 - Features will include job titles, required skills, experience levels, and full job descriptions.
 
 ### Tools and Technologies
@@ -60,8 +60,8 @@ ResumeEnhancer aims to develop an AI-powered system that analyzes job market tre
   - Web Scraping: Selenium
   - Data Processing: Pandas, logging, time
   - Machine Learning: Scikit-learn, TensorFlow 
-  - NLP: NLTK, spaCy
-  - Web Framework: Flask 
+  - NLP: BERT NER 
+  - Web Framework: Gradio
 
 ### Machine Learning Approaches
 - Supervised Learning:
@@ -81,7 +81,7 @@ ResumeEnhancer aims to develop an AI-powered system that analyzes job market tre
 ### Expected Outcomes
 1. A functional web scraping system for collecting job posting data.
 2. A trained machine learning model capable of analyzing job requirements.
-3. A resume enhancement system that can generate optimized resumes.
+3. A resume enhancement system that can generate optimized resumes enhancements based on current job market needs.
 4. A user-friendly interface for resume submission and retrieval.
 5. Improved job application success rates for users of the ResumeEnhancer system.
 
