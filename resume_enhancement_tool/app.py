@@ -29,7 +29,7 @@ def initialize_ner_pipeline():
         print(f"Error loading Hugging Face NER model: {e}")
         return None
 
-# Step 3: Load custom resume generation model (.h5 file)
+# Step 3: Load custom resume generation model (.keras file)
 def load_resume_model():
     try:
         return load_model("resume_enhanced_generator_model.keras")
@@ -63,15 +63,15 @@ def extract_text_from_word(docx_binary_content):
         return f"Error extracting text from Word document: {e}"
     return text
 
-# Function to enhance resume using the custom .h5 model
+# Function to enhance resume using the custom .keras model
 def enhance_with_custom_model(resume_text, resume_model):
     try:
-        # Assuming the .h5 model takes text input and generates enhancement suggestions
+        # Assuming the .keras model takes text input and generates enhancement suggestions
         predictions = resume_model.predict([resume_text])
         enhancements = " ".join(predictions)  # Convert predictions to text (adjust as needed)
         return enhancements
     except Exception as e:
-        return f"Error using the custom .h5 model: {e}"
+        return f"Error using the custom .keras model: {e}"
 
 # Function to optimize resume based on job title
 def optimize_resume(resume_text, job_title, client):
@@ -108,7 +108,7 @@ def process_resume(file, job_title, client, resume_model):
             with open(file_name, "r", encoding="utf-8") as f:
                 resume_text = f.read()
         
-        # Step 1: Use the custom .h5 model to enhance the resume
+        # Step 1: Use the custom .keras model to enhance the resume
         enhanced_resume = enhance_with_custom_model(resume_text, resume_model)
 
         # Step 2: Optimize the enhanced resume using the LLaMA model
