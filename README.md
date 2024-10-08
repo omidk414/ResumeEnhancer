@@ -7,13 +7,13 @@
 4. [Model Training](#3-model-training)
 5. [Resume Enhancement](#4-resume-enhancement)
 6. [Data Analysis and Visualization](#5-data-analysis-and-visualization)
-7. [Integrating Hugging Face Models](#6-integrating-hugging-face-models)
-8. [Results and Insights](#7-results-and-insights)
-9. [How to Run the Project](#8-how-to-run-the-project)
-10. [Future Work](#9-future-work)
-11. [Conclusion](#10-conclusion)
-12. [Collaborators](#11-collaborators)
-13. [Acknowledgements](#12-acknowledgements)
+7. [Word Cloud and Bar Chart Analysis](#6-word-cloud-and-bar-chart-analysis)
+8. [Integrating Hugging Face Models](#7-integrating-hugging-face-models)
+9. [Results and Insights](#8-results-and-insights)
+10. [How to Run the Project](#9-how-to-run-the-project)
+11. [Future Work](#10-future-work)
+12. [Conclusion](#11-conclusion)
+13. [Collaborators](#12-collaborators)
 
 ## Overview
 This project aims to develop a machine learning model and a comprehensive analysis system for enhancing resumes based on job titles and job market trends. The project workflow includes web scraping job data, data normalization, clustering analysis, resume enhancement using advanced machine learning models, and visualization of results. The ultimate goal is to assist candidates by tailoring their resumes to align with market demands.
@@ -140,6 +140,7 @@ iface.launch()
 - **K-Means Clustering**: Grouped job postings into 5 clusters based on skills and job descriptions.
 - **PCA (Principal Component Analysis)**: Reduced dimensionality for visualization.
 - **Elbow Curve Analysis**: Determined the optimal number of clusters.
+![elbow](https://github.com/omidk414/ResumeEnhancer/blob/main/images/elbow_curves.png)
 - **Silhouette Scores**: Evaluated cluster compactness and separation.
 
 ### Example Code:
@@ -161,22 +162,75 @@ plt.ylabel('Silhouette Score')
 plt.title('Silhouette Scores for K-Means Clustering')
 plt.show()
 ~~~
+![cluster](https://github.com/omidk414/ResumeEnhancer/blob/main/images/clusters.png)
 
-## 6. Integrating Hugging Face Models
-- We integrated **Hugging Face’s Meta-Llama 3.1** with our Keras-based model for deeper NLP and contextual understanding.
-- This allowed us to leverage both the traditional deep learning approach and the power of state-of-the-art transformer models.
+## 6. Word Cloud and Bar Chart Analysis
+To visualize the distribution of job titles and the most common skills, we generated a word cloud and bar charts.
 
-## 7. Results and Insights
-The integration of multiple models allowed for a comprehensive system that dynamically enhances resumes based on job requirements. Key insights include:
+### Word Cloud
+The word cloud represents the frequency of skills extracted from job descriptions, highlighting the most sought-after skills in the job market.
 
-- Cluster analysis showed that Data Science and Engineering roles have significant overlap in skill requirements.
-- Resume enhancement showed measurable improvements in matching the job descriptions’ requirements.
+![Word Cloud](https://github.com/omidk414/ResumeEnhancer/blob/main/images/word_clouds.png)
 
-## 8. How to Run the Project
-1. Clone the repository.
+### Bar Chart
+The bar chart provides a comparative view of the most common job titles, showcasing the top job roles and their frequencies in the scraped dataset.
+
+![Bar Chart](https://github.com/omidk414/ResumeEnhancer/blob/main/images/bar_chart.png)
+
+### Example Code:
+~~~python
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+# Generate the word cloud from job skills
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate(' '.join(skills_list))
+
+# Plot the word cloud
+plt.figure(figsize=(10, 5))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.title("Word Cloud of Job Skills")
+plt.show()
+~~~
+
+## 7. Integrating Hugging Face Models
+We successfully integrated Hugging Face models into our project pipeline to enhance the NLP capabilities of the resume enhancement tool. By combining the `resume_generator_model.h5` with the `Meta-Llama-3.1-8B-Instruct` model, we ensured a robust approach to understanding context and generating relevant resume content.
+
+### Implementation Steps:
+1. **Model Loading**: Utilized the Hugging Face `InferenceClient` to load the transformer model.
+2. **Text Generation**: Developed an API endpoint to handle resume enhancement requests, combining outputs from both models.
+
+### Example Code:
+~~~python
+from transformers import pipeline
+
+# Load Hugging Face model
+text_generator = pipeline("text-generation", model="meta-llama/Meta-Llama-3.1-8B-Instruct")
+
+def generate_text(prompt):
+    return text_generator(prompt, max_length=100)[0]['generated_text']
+
+# Example usage
+resume_enhanced = generate_text(f"Enhance the following resume for the job title: {job_title}\n\n{resume_text}")
+~~~
+
+## 8. Results and Insights
+The model successfully enhances resumes based on the specified job title, generating relevant content that aligns with job market demands. The analysis revealed key insights into the skill requirements for various roles, and the visualizations provided a clear overview of the job landscape in California.
+
+### Insights Gained:
+- The demand for data-related roles is on the rise, with data science and engineering positions being the most frequently posted.
+- Key skills for these roles include Python, SQL, and machine learning.
+
+## 9. How to Run the Project
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/omidk414/ResumeEnhancer.git
+   cd ResumeEnhancer
+   ```
 2. Install the necessary dependencies from `requirements.txt`.
-3. Run the main application using `python app.py`.
-4. Upload a resume and specify a job title to see the enhanced resume.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## 9. Future Work
 Future improvements include incorporating real-time labor market trends and expanding the enhancement system to cover a broader range of industries and job titles.
@@ -189,7 +243,3 @@ Evan Wall
 Thay Chansy
 Omid Khan
 
-## 12. Acknowledgements
-- OpenAI for their powerful models and libraries.
-- The developers of the `Hugging Face Transformers` and `Selenium` libraries.
-- Job seekers who provided valuable feedback during the development process.
