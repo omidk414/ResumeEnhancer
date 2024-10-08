@@ -233,13 +233,13 @@ The model successfully enhances resumes based on the specified job title, genera
    pip install -r requirements.txt
    ```
 
-## 9. Future Work
+## 10. Future Work
 Future improvements include incorporating real-time labor market trends and expanding the enhancement system to cover a broader range of industries and job titles.
 
-## 10. Conclusion
+## 11. Conclusion
 This project successfully demonstrates the capabilities of machine learning and NLP in enhancing resumes. By utilizing modern scraping techniques, advanced model training, and integration with powerful transformer models, we have developed a tool that can help job seekers better align their qualifications with market needs.
 
-## 11. Collaborators
+## 12. Collaborators
 Evan Wall
 Thay Chansy
 Omid Khan
