@@ -37,7 +37,7 @@ The first step of the project involved scraping job postings from [Simply Hired]
 - **Software Developer** jobs in California.
 
 ### Key Libraries Used:
-- **BeautifulSoup** for HTML parsing.
+- **Selenium** for HTML parsing.
 - **pandas** for organizing the data into a structured format.
 
 ### CSV File Headers:
