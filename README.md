@@ -240,7 +240,7 @@ Future improvements include incorporating real-time labor market trends and expa
 This project successfully demonstrates the capabilities of machine learning and NLP in enhancing resumes. By utilizing modern scraping techniques, advanced model training, and integration with powerful transformer models, we have developed a tool that can help job seekers better align their qualifications with market needs.
 
 ## 12. Collaborators
-Evan Wall
-Thay Chansy
-Omid Khan
+- Evan Wall
+- Thay Chansy
+- Omid Khan
 
