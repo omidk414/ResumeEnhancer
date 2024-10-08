@@ -134,6 +134,7 @@ def enhance_resume(resume_text, job_title):
 iface = gr.Interface(fn=enhance_resume, inputs=["text", "text"], outputs="text", title="Resume Enhancement Tool")
 iface.launch()
 ~~~
+![hugging](https://github.com/omidk414/ResumeEnhancer/blob/main/images/gradio.png)
 
 ## 5. Data Analysis and Visualization
 ### Analysis Techniques:
@@ -175,7 +176,7 @@ The word cloud represents the frequency of skills extracted from job description
 ### Bar Chart
 The bar chart provides a comparative view of the most common job titles, showcasing the top job roles and their frequencies in the scraped dataset.
 
-![Bar Chart](https://github.com/omidk414/ResumeEnhancer/blob/main/images/bar_chart.png)
+![Bar Chart](https://github.com/omidk414/ResumeEnhancer/blob/main/images/bar_charts.png)
 
 ### Example Code:
 ~~~python
