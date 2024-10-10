@@ -8,7 +8,7 @@ tensorflow
 transformers
 tf-keras
 
-# Database and Data Handling
+# Database and Data Handling 
 sqlalchemy
 numpy
 pandas
