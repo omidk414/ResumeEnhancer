@@ -85,7 +85,7 @@ After gathering the raw job data, the next step was to clean and normalize it fo
 ### Machine Learning Models Used:
 1. **Custom TensorFlow Model**:
    - We created a custom deep learning model using **Keras** and trained it on the cleaned job descriptions and skills.
-   - The model (`resume_generator_model.h5`) was trained over 100 epochs and achieved an accuracy of 72.85%.
+   - The model (`resume_generator_model.h5`) was trained over 100 epochs and achieved an accuracy of accuracy of 99.79% on the training data and a validation accuracy of 97.15%.
    
 2. **Hugging Face’s `Meta-Llama-3.1-8B-Instruct` Model**:
    - Fine-tuned this transformer model to handle contextual queries for enhancing resumes.
