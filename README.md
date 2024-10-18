@@ -234,7 +234,12 @@ The model successfully enhances resumes based on the specified job title, genera
    ```
 
 ## 10. Future Work
-Future improvements include incorporating real-time labor market trends and expanding the enhancement system to cover a broader range of industries and job titles.
+Future improvements include incorporating real-time labor market trends and expanding the enhancement system to cover a broader range of industries and job titles. Salary Prediction Model Performance and Challenges
+Our objective was to develop a model that could accurately predict job salaries, with a target R² score close to 0.80. We experimented with various feature engineering techniques, including text vectorization, polynomial features, and hyperparameter tuning on models such as Random Forest and Gradient Boosting Regressors.
+
+Despite our extensive efforts, we were unable to achieve the desired R² score. The highest R² we were able to attain was around 0.38. We have thoroughly explored the data and implemented multiple model enhancements but encountered limitations in predictive accuracy. At this point, further improvements are proving challenging given our current resources and time constraints.
+
+We are prepared to submit the project with these findings and accept the final results. We appreciate the learning opportunity this project has provided and welcome any feedback on potential further improvements.
 
 ## 11. Conclusion
 This project successfully demonstrates the capabilities of machine learning and NLP in enhancing resumes. By utilizing modern scraping techniques, advanced model training, and integration with powerful transformer models, we have developed a tool that can help job seekers better align their qualifications with market needs.
